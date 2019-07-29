@@ -39,21 +39,15 @@ ao valor armazenado nesta chave.
 
 ## Comandos
 
-Comando para setar uma chave e um valor:
+SET chave "valor" - Comando para setar uma chave e um valor
 
-SET chave "valor"
+MSET chave - Comando que aceita vários conjuntos de chave-valor como parâmetro;
 
-Comando que aceita vários conjuntos de chave-valor como parâmetro:
+GET chave - Comando para resgatar um valor
 
-MSET 
+MGET chave -  retorna os valores correspondentes às chaves informadas;
 
-Comando para resgatar um valor:
-
-GET chave
-
-Comando que remove um registro baseado na sua chave:
-
-DEL chave
+DEL chave - Comando que remove um registro baseado na sua chave 
 
 ## Realizando buscas no Redis
 
