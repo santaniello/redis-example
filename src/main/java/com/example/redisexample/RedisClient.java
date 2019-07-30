@@ -3,11 +3,9 @@ package com.example.redisexample;
 import redis.clients.jedis.Jedis;
 
 public class RedisClient {
-
     private Jedis jedis;
     private String host = "localhost";
     private int port = 6379;
-
 
     public RedisClient(String host, int port){
         this.host = host;

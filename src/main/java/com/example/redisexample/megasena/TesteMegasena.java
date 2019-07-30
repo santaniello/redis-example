@@ -3,9 +3,7 @@ package com.example.redisexample.megasena;
 import com.example.redisexample.RedisClient;
 import redis.clients.jedis.Jedis;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class TesteMegasena {
 
@@ -16,7 +14,7 @@ public class TesteMegasena {
         testeFiltrarHistoricoDaMegaSenaPorPeriodo();
         testeFiltrarTodoHistoricoDaMegasena();
         testeMGet();
-
+        testeHashs();
     }
 
     private static void testeMSET() {
@@ -76,9 +74,9 @@ public class TesteMegasena {
      * Hashs são como se fossem objetos armazenados no Redis (Qualquer dúvida olhar o Readme)...
      */
     private static void testeHashs() {
-        String ganhadores = "22";
+        final String ganhadores = "22";
         String dataSorteio = "09-11-2013";
-        String numeros = "8, 18, 26, 42, 56, 58";
+        final String numeros = "8, 18, 26, 42, 56, 58";
         String chave = String.format("resultado:%s:megasena",  dataSorteio);
         // Setando os Hashs
         long resultado1 = client.hset(chave, "ganhadores", ganhadores);
@@ -91,6 +89,18 @@ public class TesteMegasena {
         System.out.println(client.hget(chave,"numeros"));
 
 
+        /* Observação, no lugar de usarmos hset e passarmos campo a acampo de nosso hash, podemos passar um HashMap
+        *  já com os respectivos campos e valores usando o comando hmset
+        *
+        * */
+        // Exemplo usando o comando hset
+
+        Map<String, String> campos = new HashMap<String, String>() {{
+            put("ganhadores", ganhadores);
+            put("numeros", numeros);
+        }};
+
+        client.hmset(chave, campos);
 
     }
 

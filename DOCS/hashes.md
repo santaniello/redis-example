@@ -23,7 +23,8 @@ livro-001:  nome:Armazenando dados com Redis
 - HGET chave campo — retorna o valor do campo associado ao hash informado;
 - HLEN hash — retorna a quantidade de campos que um hash possui;
 - HMGET chave campo [campo ...] — retorna os valores de todos os campos informados que são associados a um hash;
-- HMSET chave campo valor [campo valor ...] - define múltiplos campos e valores em um hash;
+- HMSET chave campo valor [campo valor ...] - define múltiplos campos e valores em um hash (No caso do Java utilizando um HashMap);
 - HSET chave campo valor — armazena um hash com o campo e seu respectivo valor. Caso o hash e o campo já existam, o valor é sobrescrito.
+
 
              
