@@ -15,6 +15,13 @@ public class FiltrarHistoricoDaMegaSena {
         return client.keys(String.format(chave, mes, ano));
     }
 
+    public Set<String> filtrarTodosResultados() {
+        // * Trás todos os resultados...
+        return client.keys("*");
+    }
+
+
+
     public static void main(String[] args) {
         int mes = 9;
         int ano = 2013;
