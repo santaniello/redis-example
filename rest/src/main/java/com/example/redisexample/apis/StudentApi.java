@@ -1,12 +1,10 @@
 package com.example.redisexample.apis;
 
 import com.example.redisexample.models.Student;
-import com.example.redisexample.services.StudentAppliactionService;
+import com.example.redisexample.services.dto.StudentDTO;
+import com.example.redisexample.services.services.StudentAppliactionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value="/users")
@@ -16,12 +14,12 @@ public class StudentApi {
     private StudentAppliactionService service;
 
     @PostMapping
-    public Student save(@RequestBody  Student student){
+    public StudentDTO save(@RequestBody StudentDTO student){
         return service.save(student);
     }
 
-//    @GetMapping
-//    public UserListDTO findAll(){
-//        return service.findAll();
-//    }
+    @GetMapping(path="/{id}")
+    public StudentDTO findAll(@PathVariable  String id){
+        return service.findById(id);
+    }
 }

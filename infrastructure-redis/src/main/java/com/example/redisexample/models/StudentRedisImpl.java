@@ -3,7 +3,9 @@ package com.example.redisexample.models;
 import lombok.Getter;
 import lombok.Setter;
 
-public class StudentRedisImpl implements Student{
+import java.io.Serializable;
+
+public class StudentRedisImpl implements Student, Serializable {
     @Getter @Setter
     private String id;
     @Getter @Setter

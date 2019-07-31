@@ -35,7 +35,9 @@ public class StudentRepositoryRedisImpl implements StudentRepository {
 
     @Override
     public Optional<Student> findById(String id) {
-        return Optional.of(redisUtilStudent.getValue(STUDENT+id));
+        key.setKey(STUDENT+id);
+        System.out.println("**********ID"+id);
+        return Optional.of(redisUtilStudent.getMapAsSingleEntry(key));
     }
 
     @Override
