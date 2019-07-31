@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StudentRepositoryMongoSpringData extends MongoRepository<Student, Long> {
+public interface StudentRepositoryMongoSpringData extends MongoRepository<Student, String> {
     List<Student> findAll();
 }
